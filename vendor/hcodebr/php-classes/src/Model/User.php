@@ -9,10 +9,11 @@ use \Hcode\Mailer;
 class User extends Model {
 
 	const SESSION = "User";
-	const SECRET = "HcodePhp7_Secret";
-	const SECRET_IV = "HcodePhp7_Secret_IV";
+	const SECRET = "x.x.x.x";
+	const SECRET_IV = "x.x.x.x";
 	const ERROR = "UserError";
 	const ERROR_REGISTER = "UserErrorRegister";
+	const SUCCESS = "UserSuccess";
 
 	public static function getFromSession()
 	{
@@ -320,9 +321,28 @@ class User extends Model {
 		$_SESSION[User::ERROR] = NULL;
 	}
 
-	public static function setErrorRegister($msg)
+	public static function setSuccess($msg)
 	{
-		$_SESSION[User::ERROR_REGISTER] = $msg;
+		$_SESSION[User::SUCCESS] = $msg;
+	}
+
+	public static function getSuccess()
+	{
+		$msg = (isset($_SESSION[User::SUCCESS]) && $_SESSION[User::SUCCESS]) ? $_SESSION[User::SUCCESS] : '';
+
+		User::clearSuccess();
+
+		return $msg;
+	}
+
+	public static function clearSuccess()
+	{
+		$_SESSION[User::SUCCESS] = NULL;
+	}
+
+	public static function setSuccessRegister($msg)
+	{
+		$_SESSION[User::SUCCESS_REGISTER] = $msg;
 	}
 
 	public static function getErrorRegister()
