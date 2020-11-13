@@ -17,9 +17,9 @@ function getUserName()
 
 	$user = User::getFromSession();
 
-	$iduser = $user->getiduser();
+	//$iduser = $user->getiduser();
 
-	$user->get($iduser);
+	//$user->get($iduser);
 
 	return $user->getdesperson();
 
