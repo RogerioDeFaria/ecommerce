@@ -340,9 +340,9 @@ class User extends Model {
 		$_SESSION[User::SUCCESS] = NULL;
 	}
 
-	public static function setSuccessRegister($msg)
+	public static function setErrorRegister($msg)
 	{
-		$_SESSION[User::SUCCESS_REGISTER] = $msg;
+		$_SESSION[User::ERROR_REGISTER] = $msg;
 	}
 
 	public static function getErrorRegister()
