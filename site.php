@@ -158,6 +158,7 @@ $app->get("/checkout", function() {
 	}
 
 	if (!$address->getdesaddress()) $address->setdesaddress('');
+	if (!$address->getdesnumber()) $address->setdesnumber('');
 	if (!$address->getcomplement()) $address->setcomplement('');
 	if (!$address->getdesdistrict()) $address->setdesdistrict('');
 	if (!$address->getdescity()) $address->setdescity('');
@@ -221,6 +222,7 @@ $app->post("/checkout", function() {
 
 	$address = new Address();
 
+	$_POST['idaddress'] = 0;
 	$_POST['deszipcode'] = $_POST['zipcode'];
 	$_POST['idperson'] = $user->getidperson();
 
